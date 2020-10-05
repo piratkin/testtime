@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
 
@@ -67,6 +68,11 @@ int main()
     std::cout << "Restored date and time is: "
               << asctime(lt)
               << std::endl;
+
+    std::cout << "Press any Key" 
+    << std::endl;
+    
+    getchar();
 
     return EXIT_SUCCESS;
 }
