@@ -21,24 +21,7 @@ int main()
     std::cout << "\nLocal date and time is: "
               << asctime(lt);
 
-    tm time = {
-        .tm_sec   = second,
-        .tm_min   = minute,
-        .tm_hour  = hour + 1,
-        .tm_mday  = day,
-        .tm_mon   = month - 1,
-        .tm_year  = year - 1900,
-        .tm_wday  = 0,
-        .tm_yday  = 0,
-        .tm_isdst = 0
-    };
-
-    if (time.tm_year < 0)
-    {
-        time.tm_year = 0;
-    }
-
-    tv.tv_sec = mktime(&time);
+    tv.tv_sec = t_cur + (24 * 60 * 60);
     tv.tv_usec = 0;
 
     if (settimeofday(&tv, NULL) < 0)
